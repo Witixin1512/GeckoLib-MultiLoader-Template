@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "com.example.examplemod",
+    "id": "modid",
+    "version": "${version}",
+    "metadata": {
+      "name": "multiloader",
+      "description": "Description",
+      "contributors": {
+        "Jaredlll0": "Author"
+      },
+      "contact": {
+        "sources": "https://github.com/jaredlll08/MultiLoader-Template/"
+      },
+      "icon": "icon.png"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": [
+        "com.example.examplemod.ExampleMod"
+      ],
+      "client_init": [
+        "com.example.examplemod.client.ExampleModQuiltClient"
+      ]
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "versions": ">=0.17.0-"
+      },
+      {
+        "id": "minecraft",
+        "versions": ">=1.19.2"
+      },
+      {
+        "id": "geckolib3",
+        "versions": ">=3.1.20"
+      },
+      {
+        "id": "quilt_base",
+        "versions": ">=3.0.0-"
+      }
+    ]
+  }
+  }
+  
