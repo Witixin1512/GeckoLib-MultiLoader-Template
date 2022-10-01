@@ -20,7 +20,7 @@ build
 
 runServer
 runClient
-build-output
+buildOutput
 
 # other
 eclipse

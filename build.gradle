@@ -1,27 +1,27 @@
 subprojects {
-    
+
     apply plugin: 'java'
-    
+
     java.toolchain.languageVersion = JavaLanguageVersion.of(17)
     java.withSourcesJar()
     java.withJavadocJar()
-        
+
     jar {
         from(rootProject.file("LICENSE")) {
             rename { "${it}_${mod_name}" }
         }
         manifest {
             attributes([
-                'Specification-Title'     : mod_name,
-                'Specification-Vendor'    : mod_author,
-                'Specification-Version'   : project.jar.archiveVersion,
-                'Implementation-Title'    : project.name,
-                'Implementation-Version'  : project.jar.archiveVersion,
-                'Implementation-Vendor'   : mod_author,
-                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                'Timestampe'              : System.currentTimeMillis(),
-                'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
-                'Build-On-Minecraft'      : minecraft_version
+                    'Specification-Title'     : mod_name,
+                    'Specification-Vendor'    : mod_author,
+                    'Specification-Version'   : project.jar.archiveVersion,
+                    'Implementation-Title'    : project.name,
+                    'Implementation-Version'  : project.jar.archiveVersion,
+                    'Implementation-Vendor'   : mod_author,
+                    'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                    'Timestampe'              : System.currentTimeMillis(),
+                    'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+                    'Build-On-Minecraft'      : minecraft_version
             ])
         }
     }
@@ -45,7 +45,7 @@ subprojects {
             name = 'BlameJared Maven (CrT / Bookshelf)'
             url = 'https://maven.blamejared.com'
         }
-         maven {
+        maven {
             name = 'ParchmentMC'
             url = 'https://maven.parchmentmc.org'
         }
@@ -54,7 +54,7 @@ subprojects {
             name 'Quilt (Release)'
             url 'https://maven.quiltmc.org/repository/release/'
         }
-        
+
 
         maven {
             url "https://cursemaven.com"
@@ -69,11 +69,11 @@ subprojects {
         }
         maven { url "https://maven.architectury.dev/" }
         maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
-        
+
     }
 
     tasks.withType(JavaCompile).configureEach {
-    
+
         it.options.encoding = 'UTF-8'
         it.options.release = 17
     }
@@ -85,4 +85,17 @@ subprojects {
 
         enabled = false
     }
+
 }
+
+    task assembleSubProjects(){
+        subprojects.forEach(subProject -> {
+            var props = rootProject.getProperties()
+            var fileName = "${props.get("mod_name")}-${subProject.getName().toLowerCase()}-${minecraft_version}-${props.get("version")}.jar"
+            var sourceFileName = "${props.get("mod_name")}-${subProject.getName().toLowerCase()}-${minecraft_version}-${props.get("version")}-sources.jar"
+            subProject.file("build/libs/${fileName}").renameTo(rootProject.file("buildOutput/${fileName}"))
+            subProject.file("build/libs/${sourceFileName}").renameTo(rootProject.file("buildOutput/${sourceFileName}"))
+        })
+    }
+
+

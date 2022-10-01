@@ -2,7 +2,7 @@ plugins {
     id 'org.quiltmc.loom' version '0.12.+'
 }
 
-archivesBaseName = "${mod_id}-common-${minecraft_version}"
+archivesBaseName = "${mod_name}-common-${minecraft_version}"
 
 repositories {
     maven {

@@ -3,7 +3,6 @@ plugins {
     id 'maven-publish'
     id 'idea'
 }
-
 archivesBaseName = "${mod_name}-fabric-${minecraft_version}"
 
 dependencies {
