@@ -86,7 +86,7 @@ subprojects {
         enabled = false
     }
 
-    task assembleSubProjects(){
+    task assembleSubProjects() {
                 var props = rootProject.getProperties()
                 var fileName = "${props.get("mod_name")}-${project.getName().toLowerCase()}-${minecraft_version}-${props.get("version")}.jar"
                 var sourceFileName = "${props.get("mod_name")}-${project.getName().toLowerCase()}-${minecraft_version}-${props.get("version")}-sources.jar"
