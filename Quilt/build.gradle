@@ -1,5 +1,5 @@
 plugins {
-	id 'org.quiltmc.loom' version '0.12.+'
+	id 'org.quiltmc.loom' version '1.+'
 	id 'maven-publish'
 }
 
@@ -27,7 +27,6 @@ configurations {
 }
 
 dependencies {
-
 	minecraft "com.mojang:minecraft:${minecraft_version}"
 	mappings loom.layered() {
 		officialMojangMappings()

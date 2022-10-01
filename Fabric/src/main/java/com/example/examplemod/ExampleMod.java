@@ -1,14 +1,12 @@
 package com.example.examplemod;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import software.bernie.example.registry.EntityRegistryBuilder;
-import software.bernie.geckolib3.GeckoLib;
 
 public class ExampleMod implements ModInitializer {
 
