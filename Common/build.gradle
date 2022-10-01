@@ -1,5 +1,5 @@
 plugins {
-    id 'org.quiltmc.loom' version '1.+'
+    id 'org.quiltmc.loom' version '0.12.+'
 }
 
 archivesBaseName = "${mod_id}-common-${minecraft_version}"
@@ -8,12 +8,6 @@ repositories {
     maven {
         name = 'Forge / Mixin'
         url = 'https://maven.minecraftforge.net'
-    }
-    maven {
-        url "https://cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
     }
 }
 
@@ -36,9 +30,8 @@ dependencies {
     //DO NOT USE IN PROJECT
     //Provides necessary stuff for project to compile
     modCompileOnly("org.quiltmc:quilt-loader:${quilt_loader_version}")
-
-    //Geckolib dependency!
     modCompileOnly ("software.bernie.geckolib:geckolib-quilt-1.19:${geckolib_version_quilt}")
+
 }
 
 import net.fabricmc.loom.task.AbstractRemapJarTask
