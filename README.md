@@ -2,7 +2,9 @@
 
 This project provides a Gradle project template that can compile mods for both Forge, Quilt and Fabric using a common sourceset. This project does not require any third party libraries or dependencies.
 Additionally, GeckoLib is included in both the Common and Modloader subprojects. 
-Mixin is not included by default. Fabric/Quilt Access Wideners are also not included.
+
+Do keep in mind GeckoLib-forge is used in Common as of now. There MIGHT be some geckolib features that might require loader specific classes...
+Mixins and AWs/ATs are included by default. Any AWs you use in Common will be applied on Quilt and Fabric too, but you will NEED to convert any AWs to ATs in order to not crash on Forge.
 
 The rest of the installation is still multiloader default so... Keep on reading!
 
@@ -12,12 +14,12 @@ The rest of the installation is still multiloader default so... Keep on reading!
 This guide will show how to import the MultiLoader Template into IntelliJ IDEA. The setup process is roughly equivalent to setting up Forge and Fabric independently and should be very familiar to anyone who has worked with their MDKs.
 
 1. Clone or download this repository to your computer.
-2. Configure the project by editing the `group`, `mod_name`, `mod_author`, and `mod_id` properties in the `gradle.properties` file. You will also need to change the `rootProject.name`  property in `settings.gradle`.
+2. Configure the project by editing the `group`, `mod_name`, `mod_author`, and `mod_id` properties in the `gradle.properties` file. You will also need to change the `rootProject.name`  property in `settings.gradle`, as well as project-specific names in accesswidener or mixin related files.
 3. Open the template's root folder as a new project in IDEA. This is the folder that contains this README file and the gradlew executable.
 4. If your default JVM/JDK is not Java 17 you will encounter an error when opening the project. This error is fixed by going to `File > Settings > Build, Execution, Deployment > Build Tools > Gradle > Gradle JVM`and changing the value to a valid Java 17 JVM. You will also need to set the Project SDK to Java 17. This can be done by going to `File > Project Structure > Project SDK`. Once both have been set open the Gradle tab in IDEA and click the refresh button to reload the project.
-6. Open the Gradle tab in IDEA if it has not already been opened. Navigate to `Your Project > Forge > Tasks > forgegradle runs > genIntellijRuns`. Run this task to set up run configurations for Forge.
-7. Open your Run/Debug Configurations. Under the Application category there should now be options to run Forge and Fabric projects. Select one of the client options and try to run it.
-8. Assuming you were able to run the game in step 7 your workspace should now be set up.
+5. Open the Gradle tab in IDEA if it has not already been opened. Navigate to `Your Project > Forge > Tasks > forgegradle runs > genIntellijRuns`. Run this task to set up run configurations for Forge.
+6. Open your Run/Debug Configurations. Under the Application category there should now be options to run Forge and Fabric projects. Select one of the client options and try to run it.
+7. Assuming you were able to run the game in step 7 your workspace should now be set up.
 
 ### Eclipse
 While it is possible to use this template in Eclipse it is not recommended. During the development of this template multiple critical bugs and quirks related to Eclipse were found at nearly every level of the required build tools. While we continue to work with these tools to report and resolve issues support for projects like these are not there yet. For now Eclipse is considered unsupported by this project. The development cycle for build tools is notoriously slow so there are no ETAs available.
