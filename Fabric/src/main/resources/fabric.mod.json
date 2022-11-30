@@ -25,7 +25,10 @@
         "com.example.examplemod.client.ExampleModFabricClient"
       ]
     },
-  
+    "mixins": [
+      "multiloader.mixins.json",
+      "multiloader.fabric.mixins.json"
+    ],
     "depends": {
       "fabricloader": ">=0.14",
       "fabric": "*",
@@ -35,6 +38,7 @@
     },
     "suggests": {
       "another-mod": "*"
-    }
+    },
+    "accessWidener": "multiloader_common.accesswidener"
   }
   

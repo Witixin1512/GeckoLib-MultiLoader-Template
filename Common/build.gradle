@@ -1,42 +1,21 @@
 plugins {
-    id 'org.quiltmc.loom' version '0.12.+'
+    id 'java'
+    id 'org.spongepowered.gradle.vanilla' version '0.2.1-SNAPSHOT'
+    id 'maven-publish'
 }
 
-archivesBaseName = "${mod_name}-common-${minecraft_version}"
+archivesBaseName = "${mod_name}-Common-${minecraft_version}"
 
-repositories {
-    maven {
-        name = 'Forge / Mixin'
-        url = 'https://maven.minecraftforge.net'
-    }
-}
+minecraft {
+    version(minecraft_version)
+    accessWideners(project(":Common").file("src/main/resources/${mod_id}_common.accesswidener"))
 
-loom {
-    runConfigs.configureEach {
-        ideConfigGenerated = false
-    }
-}
 
-configurations {
-    testCompileOnly.extendsFrom(compileOnly)
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.layered() {
-        officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-${parchment_minecraft_version}:${parchment_version}@zip")
-    }
-    //DO NOT USE IN PROJECT
-    //Provides necessary stuff for project to compile
-    modCompileOnly("org.quiltmc:quilt-loader:${quilt_loader_version}")
-    modCompileOnly ("software.bernie.geckolib:geckolib-quilt-1.19:${geckolib_version_quilt}")
-
-}
-
-import net.fabricmc.loom.task.AbstractRemapJarTask
-tasks.withType(AbstractRemapJarTask).each {
-    it.targetNamespace = "named"
+    compileOnly "org.spongepowered:mixin:0.8.5"
+    compileOnly "software.bernie.geckolib:geckolib-forge-1.19:${geckolib_version_forge}"
 }
 
 processResources {

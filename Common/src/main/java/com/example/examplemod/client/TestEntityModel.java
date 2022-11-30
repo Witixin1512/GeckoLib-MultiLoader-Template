@@ -1,7 +1,7 @@
 package com.example.examplemod.client;
 
 import com.example.examplemod.Constants;
-import com.example.examplemod.TestEntity;
+import com.example.examplemod.entity.TestEntity;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 

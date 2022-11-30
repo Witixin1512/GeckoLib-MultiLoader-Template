@@ -1,6 +1,7 @@
 package com.example.examplemod;
 
 import com.example.examplemod.client.TestEntityRenderer;
+import com.example.examplemod.entity.TestEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.api.distmarker.Dist;

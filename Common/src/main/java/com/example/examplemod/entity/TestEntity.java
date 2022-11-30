@@ -1,4 +1,4 @@
-package com.example.examplemod;
+package com.example.examplemod.entity;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
