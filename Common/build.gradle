@@ -9,9 +9,10 @@ archivesBaseName = "${mod_name}-Common-${minecraft_version}"
 minecraft {
     version(minecraft_version)
     accessWideners(project(":Common").file("src/main/resources/${mod_id}_common.accesswidener"))
-
-
 }
+
+//JavaDocs error with GeckoLib code as it shadows two dependencies that aren't found in the classpath, so we disable them.
+javadoc.enabled(false)
 
 dependencies {
     compileOnly "org.spongepowered:mixin:0.8.5"

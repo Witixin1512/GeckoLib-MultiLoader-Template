@@ -98,7 +98,6 @@ subprojects {
 
 
 
-/*
 task assembleSubProjects(){
     doFirst {
         subprojects.forEach(subProject -> {
@@ -111,4 +110,3 @@ task assembleSubProjects(){
     }
 
 }
-*/
