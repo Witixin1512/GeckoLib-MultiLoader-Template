@@ -3,22 +3,12 @@ package com.example.examplemod.client;
 import com.example.examplemod.Constants;
 import com.example.examplemod.entity.TestEntity;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 
-public class TestEntityModel extends AnimatedGeoModel<TestEntity> {
-    @Override
-    public ResourceLocation getModelResource(TestEntity object) {
-        return Constants.rl("geo/test_entity.geo.json");
+public class TestEntityModel extends DefaultedEntityGeoModel<TestEntity> {
+
+
+    public TestEntityModel(ResourceLocation assetSubpath) {
+        super(assetSubpath);
     }
-
-    @Override
-    public ResourceLocation getTextureResource(TestEntity object) {
-        return Constants.rl("textures/test_entity.png");
-    }
-
-    @Override
-    public ResourceLocation getAnimationResource(TestEntity animatable) {
-        return Constants.rl("animations/test_entity.animation.json");
-    }
-
 }

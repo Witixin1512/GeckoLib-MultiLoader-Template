@@ -6,6 +6,11 @@ Additionally, GeckoLib is included in both the Common and Modloader subprojects.
 Do keep in mind GeckoLib-forge is used in Common as of now. There MIGHT be some geckolib features that might require loader specific classes...
 Mixins and AWs/ATs are included by default. Any AWs you use in Common will be applied on Quilt and Fabric too, but you will NEED to convert any AWs to ATs in order to not crash on Forge.
 
+The purpose of this repository is to show you how to get a MultiLoader Workspace working with GeckoLib setup already.
+It expects you to know GeckoLib already. 
+
+**I would not recommend MultiLoader environments to anyone who isn't familiar with modding and hasn't done extensive work on one loader**
+
 The rest of the installation is still multiloader default so... Keep on reading!
 
 ## Getting Started

@@ -8,10 +8,11 @@
       "name": "multiloader",
       "description": "Description",
       "contributors": {
-        "Jaredlll0": "Author"
+        "Jaredlll0": "Author",
+        "Witixin" : "Contributor"
       },
       "contact": {
-        "sources": "https://github.com/jaredlll08/MultiLoader-Template/"
+        "sources": "https://github.com/Witixin1512/GeckoLib-MultiLoader-Template"
       },
       "icon": "icon.png"
     },
@@ -27,19 +28,19 @@
     "depends": [
       {
         "id": "quilt_loader",
-        "versions": ">=0.17.0-"
+        "versions": ">=0.18.0-"
       },
       {
         "id": "minecraft",
-        "versions": ">=1.19.2"
+        "versions": ">=1.19.3"
       },
       {
-        "id": "geckolib3",
-        "versions": ">=3.1.20"
+        "id": "geckolib",
+        "versions": ">=4.0.1"
       },
       {
         "id": "quilt_base",
-        "versions": ">=3.0.0-"
+        "versions": ">=4.0.0-"
       }
     ]
   }

@@ -2,19 +2,20 @@ package com.example.examplemod;
 
 import com.example.examplemod.entity.TestEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
-import software.bernie.example.registry.EntityRegistryBuilder;
+import org.quiltmc.qsl.entity.api.QuiltEntityTypeBuilder;
 
 public class ExampleMod implements ModInitializer {
 
 
-    public static EntityType<TestEntity> TEST_ENTITY = EntityRegistryBuilder.<TestEntity>createBuilder(new ResourceLocation(Constants.MOD_ID, "test_entity")).entity(TestEntity::new)
-            .category(MobCategory.CREATURE).dimensions(EntityDimensions.scalable(1.0f, 1.0f)).build();
+    public static EntityType<TestEntity> TEST_ENTITY = Registry.register(BuiltInRegistries.ENTITY_TYPE,
+            Constants.rl("test_entity"), QuiltEntityTypeBuilder.create(MobCategory.CREATURE, TestEntity::new).setDimensions(EntityDimensions.scalable(1.0f, 1.0f)).build());
 
     @Override
     public void onInitialize(ModContainer container) {

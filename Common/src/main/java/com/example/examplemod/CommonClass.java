@@ -2,6 +2,8 @@ package com.example.examplemod;
 
 import com.example.examplemod.platform.Services;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
@@ -18,7 +20,7 @@ public class CommonClass {
     public static void init() {
 
         Constants.LOG.info("Hello from Common init on {}! we are currently in a {} environment!", Services.PLATFORM.getPlatformName(), Services.PLATFORM.isDevelopmentEnvironment() ? "development" : "production");
-        Constants.LOG.info("Diamond Item >> {}", Registry.ITEM.getKey(Items.DIAMOND));
+        Constants.LOG.info("Diamond Item >> {}", BuiltInRegistries.ITEM.getKey(Items.DIAMOND));
     }
 
     // This method serves as a hook to modify item tooltips. The vanilla game

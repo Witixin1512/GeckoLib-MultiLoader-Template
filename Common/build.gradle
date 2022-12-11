@@ -16,7 +16,9 @@ javadoc.enabled(false)
 
 dependencies {
     compileOnly "org.spongepowered:mixin:0.8.5"
-    compileOnly "software.bernie.geckolib:geckolib-forge-1.19:${geckolib_version_forge}"
+    //This is a horrible way of doing things to be fair, as you don't want Forge References in Common or Fabric / Quilt.
+    //That said, GeckoLib does not release Core or a Common jar yet, so we'll have to work with this.
+    compileOnly "software.bernie.geckolib:geckolib-forge-1.19.3:${geckolib_version_forge}"
 }
 
 processResources {
